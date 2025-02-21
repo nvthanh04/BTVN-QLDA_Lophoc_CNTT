@@ -23,9 +23,8 @@ class Student {
         return (oop + QLDA + HM + CSDL + App)/5;
     }
 
-    @Override
-    public String toString() {
-        return LastName + " " + FirstName + " - Nam sinh: " + Birthdate + " - Dia chi: " + Address + " - Lop: " + Class;
+    public void ThongTin() {
+        System.out.println(LastName + " " + FirstName + " - Nam sinh: " + Birthdate + " - Dia chi: " + Address + " - Lop: " + Class);
     }
 }
 
@@ -61,7 +60,7 @@ class ClassRoom {
         }
         else{
             for(Student s : students)
-                System.out.println(s);
+                s.ThongTin();
         }
         System.out.println("---------------------------------------------");
     }
@@ -109,25 +108,33 @@ public class BTVN {
         Scanner scanner = new Scanner(System.in);
         String classCode;
         boolean ktra = false;
+        boolean isContinue = false;
 
         do{
-            System.out.println("Nhap lop ban muon xem diem: ");
-            classCode = scanner.nextLine();
-
-            for(ClassRoom c : classRooms){
-                if(c.getClassName().equalsIgnoreCase(classCode)) // so sánh chuỗi
-                {
-                    ktra = true;
-                    c.rankCore();
-                    c.displayStudents();
-                    break;
+            do{
+                System.out.println("Nhap lop ban muon xem diem: ");
+                classCode = scanner.nextLine();
+    
+                for(ClassRoom c : classRooms){
+                    if(c.getClassName().equalsIgnoreCase(classCode)) // so sánh chuỗi
+                    {
+                        ktra = true;
+                        c.rankCore();
+                        c.displayStudents();
+                        break;
+                    }
                 }
-            }
-            if(!ktra)
-            {
-                System.out.println("Lop khong ton tai! Vui long nhap lai");
-            }
+                if(!ktra)
+                {
+                    System.out.println("Lop khong ton tai! Vui long nhap lai");
+                }
+    
+            }while(!ktra);
 
-        }while(!ktra);
+            System.out.println("Ban co muon tiep tuc hay khong (Y/N): ");
+            String answer = scanner.nextLine().trim();
+            isContinue = answer.equalsIgnoreCase("Y");
+            
+        }while(isContinue);
     }
 }
