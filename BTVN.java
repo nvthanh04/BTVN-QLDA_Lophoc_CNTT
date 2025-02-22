@@ -56,7 +56,7 @@ class ClassRoom {
         System.out.println("Danh sach Sinh Vien lop: "+ ClassName);
         if(students.isEmpty())
         {
-            System.out.println("Không có học sinh nào trong lớp này");
+            System.out.println("Khong co hoc sinh nao trong lop nay");
         }
         else{
             for(Student s : students)
@@ -92,14 +92,22 @@ public class BTVN {
 
         ClassRoom class1 = new ClassRoom("HTTT3");
         ClassRoom class2 = new ClassRoom("HTTT4");
-
+        ClassRoom class3 = new ClassRoom("HTTT5");
+        
         classRooms.add(class1);
         classRooms.add(class2);
-
+        classRooms.add(class3);
+        
         class1.addStudent(new Student("John", "Doe", "2000-05-15", "123 Street", "HTTT3", 9.5, 8.8, 9.2, 8.4, 9.0));
         class1.addStudent(new Student("Jane", "Smith", "2001-07-20", "456 Avenue", "HTTT3", 8.0, 7.5, 7.0, 8.5, 8.9));
-        class2.addStudent(new Student("Mark", "Lee", "2002-08-22", "789 Road", "HTTT4", 6.5, 6.0, 7.0, 5.5, 6.0));
+        class1.addStudent(new Student("Alice", "Brown", "2000-10-10", "12 Main St", "HTTT3", 7.5, 6.8, 8.2, 7.9, 8.0));
+        class1.addStudent(new Student("Bob", "Johnson", "2001-03-25", "34 Oak Ave", "HTTT3", 9.0, 8.5, 9.1, 8.3, 9.2));
 
+        class2.addStudent(new Student("Mark", "Lee", "2002-08-22", "789 Road", "HTTT4", 6.5, 6.0, 7.0, 5.5, 6.0));
+        class2.addStudent(new Student("Charlie", "Davis", "2002-06-30", "56 Pine Rd", "HTTT4", 5.5, 6.2, 5.8, 6.0, 5.9));
+        class2.addStudent(new Student("David", "Wilson", "2001-09-12", "78 Elm St", "HTTT4", 4.5, 5.0, 4.8, 5.3, 4.9));
+        class2.addStudent(new Student("Eve", "Miller", "2000-12-05", "90 Maple Ln", "HTTT4", 8.5, 9.0, 8.8, 9.2, 9.1));
+    
         System.out.println("Danh sach cac lop hoc: " + " ");
         for (ClassRoom c : classRooms) {
             System.out.println( c.getClassName());
