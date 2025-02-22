@@ -120,31 +120,28 @@ public class BTVN {
         boolean ktra = false;
         boolean isContinue = false;
 
-        do{
-            do{
-                System.out.println("Nhap lop ban muon xem diem: ");
-                classCode = scanner.nextLine();
-    
-                for(ClassRoom c : classRooms){
-                    if(c.getClassName().equalsIgnoreCase(classCode)) // so sánh chuỗi
-                    {
-                        ktra = true;
-                        c.rankCore();
-                        c.displayStudents();
-                        break;
-                    }
+        do {
+            System.out.println("Nhap lop ban muon xem diem: ");
+            classCode = scanner.nextLine();
+            boolean found = false;
+
+            for (ClassRoom c : classRooms) {
+                if (c.getClassName().equalsIgnoreCase(classCode)) {
+                    c.rankCore();
+                    c.displayStudents();
+                    found = true;
+                    break;
                 }
-                if(!ktra)
-                {
-                    System.out.println("Lop khong ton tai! Vui long nhap lai");
-                }
-    
-            }while(!ktra);
+            }
+
+            if (!found) {
+                System.out.println("Lop khong ton tai! Vui long nhap lai.");
+                continue;
+            }
 
             System.out.println("Ban co muon tiep tuc hay khong (Y/N): ");
-            String answer = scanner.nextLine().trim();
-            isContinue = answer.equalsIgnoreCase("Y");
-            
-        }while(isContinue);
+            isContinue = scanner.nextLine().trim().equalsIgnoreCase("Y");
+
+        } while (isContinue);
     }
 }
