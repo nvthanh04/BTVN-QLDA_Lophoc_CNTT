@@ -25,6 +25,8 @@ class Student {
 
     public void ThongTin() {
         System.out.println(LastName + " " + FirstName + " - Nam sinh: " + Birthdate + " - Dia chi: " + Address + " - Lop: " + Class);
+        System.out.println("OOP = " + oop + ", QLDA = " + QLDA + ", HM = " + HM + 
+        ", CSDL = " + CSDL + ", App = " + App + ", Diem TB = " + String.format("%.2f", getDiemTB()));
     }
 }
 
